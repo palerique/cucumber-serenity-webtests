@@ -7,16 +7,19 @@ import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.showcase.cucumber.model.ListingItem;
 import net.thucydides.showcase.cucumber.steps.serenity.BuyerSteps;
+import org.junit.Ignore;
 
 import static net.thucydides.showcase.cucumber.model.SessionVariables.SELECTED_LISTING;
 
 /**
  * Created by john on 12/11/14.
  */
+@Ignore
 public class ShoppingCartScenarioSteps {
 
 	@Steps
 	BuyerSteps buyer;
+	double itemCost;
 
 	@Quando("I add it to the cart")
 	public void addToCart() {
@@ -34,8 +37,6 @@ public class ShoppingCartScenarioSteps {
 		ListingItem selectedItem = (ListingItem) Serenity.getCurrentSession().get(SELECTED_LISTING);
 		buyer.should_see_total_including_shipping_for(selectedItem);
 	}
-
-	double itemCost;
 
 	@Dado("I have selected an item that costs (.*)")
 	public void itemCosts(double cost) {

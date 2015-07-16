@@ -13,33 +13,33 @@ public class SearchScenarioSteps {
 	@Steps
 	BuyerSteps buyer;
 
-	@Dado("I (?:want|would like) to buy (.*)")
+	@Dado("que (?:quero|possa querer) comprar um (.*)")
 	public void buyerWantsToBuy(String article) {
 		buyer.opens_home_page();
 	}
 
-	@Quando("I search for '(.*)'")
+	@Quando("eu buscar por '(.*)'")
 	public void searchByKeyword(String keyword) {
 		buyer.searches_by_keyword(keyword);
 	}
 
-	@Entao("I should see only articles related to '(.*)'")
+	@Entao("devo ver apenas artigos relacionados com '(.*)'")
 	public void resultsForACategoryAndKeywordInARegion(String keyword) throws ParseException {
 		buyer.should_see_results_summary_containing(keyword);
 	}
 
-	@Dado("I want to see articles from a particular shop")
+	@Dado("que desejo visualizar artigos de uma loja em particular")
 	public void givenIWantToSeeArticlesFromAParticularShop() {
 		buyer.opens_home_page();
 	}
 
-	@Quando("I search by shop for '(.*)'")
+	@Quando("eu buscar uma loja por '(.*)'")
 	public void whenISearchByShopFor(String shopName) {
 		buyer.should_see_nonexistant_field();
 		buyer.searches_for_shop_called(shopName);
 	}
 
-	@Entao("I should find (\\d+) (?:shop|shops) called '(.*)'")
+	@Entao("devo encontrar (\\d+) (?:loja|lojas) chamada '(.*)'")
 	public void thenIShouldFindShopsCall(int count, String shopName) {
 		String expectedMessage = String.format("%d %s encontrada para %s", count, pluralized(count, "loja"), shopName);
 		buyer.should_see_shop_search_result_summary_of(expectedMessage);

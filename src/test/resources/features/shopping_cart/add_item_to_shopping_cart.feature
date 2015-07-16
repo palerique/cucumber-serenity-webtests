@@ -12,7 +12,3 @@ Funcionalidade: Add item to shopping cart
     Quando I add it to the cart
     Então the item should appear in the cart
     E the shipping cost should be included in the total price
-
-
-
-

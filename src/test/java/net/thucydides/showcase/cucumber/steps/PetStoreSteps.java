@@ -5,6 +5,7 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import net.thucydides.showcase.cucumber.model.Pet;
+import org.junit.Ignore;
 
 import java.util.List;
 import java.util.Random;
@@ -15,6 +16,7 @@ import static org.hamcrest.Matchers.equalTo;
 /**
  * Created by john on 27/05/2015.
  */
+@Ignore
 public class PetStoreSteps {
 
 	List<Pet> pets;
